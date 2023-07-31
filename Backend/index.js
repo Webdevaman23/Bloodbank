@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 //routes
-app.use('/api/v1/' , require('./routes/authroutes'));
+app.use('/api/v1/auth' , require('./routes/authroutes'));
 
 
 // Port and Server starting
