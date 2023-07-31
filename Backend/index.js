@@ -13,7 +13,7 @@ app.use(cors());
 
 //routes
 app.use('/api/v1/auth' , require('./routes/authroutes'));
-
+app.use('/api/v1/inventory' , require("./routes/inventoryRoutes"));
 
 // Port and Server starting
 const PORT = process.env.PORT;
