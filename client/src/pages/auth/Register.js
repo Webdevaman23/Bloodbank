@@ -11,7 +11,8 @@ function Register() {
             <div className="col-md-4 form-container">
                 <Form 
                     formTitle={"Register Here!"}
-                    submitBtn={"Register here"}
+                    submitBtn={"Register"}
+                    formType={"Register"}
                 />
             </div>
         </div>

@@ -12,6 +12,7 @@ function Login() {
                 <Form 
                     formTitle={"Login"}
                     submitBtn={"Login"}
+                    formType={"Login"}
                 />
             </div>
         </div>
