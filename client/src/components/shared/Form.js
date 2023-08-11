@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import InputType from "./InputType";
+import {Link} from 'react-router-dom'
+import { handleLogin, handleRegister } from '../../services/AuthServices';
 
 function Form({ formType , formTitle , submitBtn}) {
     const [email , setEmail] = useState("")
@@ -14,7 +16,10 @@ function Form({ formType , formTitle , submitBtn}) {
 
     return (
         <div>
-            <form>
+            <form onSubmit={(e)=>{
+                if(formType === 'Login')return handleLogin(e , email , password , role);
+                else if(formType === 'Register') return handleRegister(e, email , password , name , role , organisationName , hospitalName , website , address , phone)
+            }}>
                 <h1 className='text-center'>{formTitle}</h1>
                 <hr />
             {/* Role radio  */}
@@ -212,7 +217,19 @@ function Form({ formType , formTitle , submitBtn}) {
 
             
 
-                <div className='d-flex'>
+                <div className='d-flex justify-content-between'>
+                {
+                    formType === 'Login' ? (
+                        <p>Not registered yet ? Register
+                        <Link to={"/Register"}> Here !</Link>
+                        </p>
+                    ) : (
+                        <p>
+                            Already user please
+                            <Link to={"/Login"}> Login</Link>
+                        </p>
+                    )
+                }
                     <button className='btn btn-success' type='submit'>
                         {submitBtn}
                     </button>
