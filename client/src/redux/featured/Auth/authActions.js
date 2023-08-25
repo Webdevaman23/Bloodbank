@@ -11,6 +11,7 @@ export const userLogin = createAsyncThunk(
             // store token 
             if(data.success){
                 localStorage.setItem('token' , data.token)
+                // window.location.replace("/");
                 toast.success(data.message)
             }
             return data ;
