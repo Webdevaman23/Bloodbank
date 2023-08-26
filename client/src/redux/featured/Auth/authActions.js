@@ -24,3 +24,31 @@ export const userLogin = createAsyncThunk(
         }
     }
 )
+
+// Register
+export const userRegister = createAsyncThunk(
+    'auth/register' ,
+    async({email , password , name , role , organisationName , hospitalName , website , address , phone} , { rejectWithValue }) => {
+        try {
+            const { data } = await API.post('auth/register' , {email , password , name , role , organisationName , hospitalName , website , address , phone})
+
+            //store token
+            if(data.success){
+                alert("User registered successfully");
+                // toast.success(data.message);
+                
+                // Delay the redirect by 2 seconds
+                setTimeout(() => {
+                    window.location.replace("/login");
+                }, 2000);
+            }
+        } catch (error) {
+            console.log(error);
+            if(error.response && error.response.data.message){
+                return rejectWithValue(error.response.data.message)
+            }else{
+                return rejectWithValue(error.message)
+            }
+        }
+    }
+)
