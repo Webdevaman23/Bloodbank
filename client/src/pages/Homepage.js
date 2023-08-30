@@ -7,11 +7,19 @@ function Homepage() {
   const { loading, error } = useSelector((state) => state.auth);
 
   return (
-    <>
-      <Layout />
+    <Layout>
       {error && <span>{alert(error)}</span>}
-      {loading ? <Spinner /> : <h1>Homepage</h1>}
-    </>
+      {loading ? (<Spinner />) : (
+        <>
+          <div className="container">
+            <h4 className="ms-4">
+            <i className="fa-solid fa-plus text-success py-4"></i>
+              Add Inventory
+            </h4>
+          </div>
+        </>
+      )}
+    </Layout>
   );
 }
 
