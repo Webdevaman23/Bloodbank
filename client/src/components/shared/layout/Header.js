@@ -35,13 +35,10 @@ const Header = () => {
                   <span className="badge bg-secondary mx-1">{user?.role}</span>
                 </h6>
 
-              <button
-                type="button"
-                className="btn btn-danger btn-sm"
+                <button type="button" class="btn btn-danger btn-sm"
                 onClick={handleLogout}
-              >
-                Logout
-              </button>
+                >Logout
+                </button>
             </li>
           </div>
         </div>

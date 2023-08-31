@@ -1,20 +1,20 @@
 import React from "react";
-// import { userMenu } from "./Menus/userMenu";
+import { userMenu } from "./Menu/Menu";
 import { useLocation, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import "../../../Styles/Layout.css";
 
 const Sidebar = () => {
   //GET USER STATE
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   const location = useLocation();
 
   return (
     <div>
-      <div className="sidebar">
+       <div className="sidebar">
         <div className="menu">
-          {user?.role === "organisation" && (
+          {/* {user?.role === "organisation" && (
             <>
               <div
                 className={`menu-item ${location.pathname === "/" && "active"}`}
@@ -97,20 +97,20 @@ const Sidebar = () => {
               <i className="fa-sharp fa-solid fa-building-ngo"></i>
               <Link to="/donation">Donation</Link>
             </div>
-          )}
+          )}  */}
 
-          {/* {userMenu.map((menu) => {
+          {userMenu.map((menu) => {
             const isActive = location.pathname === menu.path;
             return (
               <div
                 className={`menu-item ${isActive && "active"}`}
-                key={menu.name}
+                // key={menu.name}
               >
                 <i className={menu.icon}></i>
                 <Link to={menu.path}>{menu.name}</Link>
               </div>
             );
-          })} */}
+          })}
         </div>
       </div>
     </div>

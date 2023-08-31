@@ -1,4 +1,4 @@
-export const userMenu = () => [
+export const userMenu = [
     {
         name : "Inventory",
         path : "/",
@@ -17,6 +17,6 @@ export const userMenu = () => [
     {
         name: "organisation",
         path: "/organisation",
-        icon: "fa-sharp fa-solid fa-building-ngo",
-      }
+        icon: "fa-sharp fa-solid fa-building-ngo"
+    }
 ];
