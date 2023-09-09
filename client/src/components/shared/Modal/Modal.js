@@ -29,6 +29,7 @@ const Modal = () => {
                 window.location.reload()
             }
         } catch (error) {
+          alert(error.response.data.message);
             console.log(error)
             window.location.reload()
         }
@@ -42,7 +43,7 @@ const Modal = () => {
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
@@ -95,7 +96,7 @@ const Modal = () => {
             aria-label="Default select example"
             onChange={(e) => setBloodGroup(e.target.value)}
             >
-              <option selected>Open this select menu</option>
+              <option defaultValue={"Open this select menu"}>Open this select menu</option>
               <option value={"O+"}>O+</option>
               <option value={"O-"}>O-</option>
               <option value={"AB+"}>AB+</option>
