@@ -146,4 +146,35 @@ const getDonarsControllers = async(req , res) => {
     }
 };
 
-module.exports = { createInventoryController, getInventoryController , getDonarsControllers };
+
+// Get Hospital Records
+const getHospitalController = async(req , res) => {
+  try {
+    const organisation = req.body.UserId;
+
+    // get hospital id
+    const hospitalId = await inventoryModel.distinct("hospital" , {
+      organisation
+    });
+
+    // find hospital
+    const hospitals = await Usermodel.find({
+      _id : {$in : hospitalId}
+    })
+
+    return res.status(200).send({
+      success : true ,
+       message : "Hospitals Data Fetched Successfully",
+       hospitals
+    })
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success : false,
+      message : "Error in getting Hospitals Records",
+      error
+    })
+  }
+}
+
+module.exports = { getHospitalController , createInventoryController, getInventoryController , getDonarsControllers };
