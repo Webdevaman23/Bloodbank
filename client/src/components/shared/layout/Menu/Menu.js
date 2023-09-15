@@ -15,7 +15,7 @@ export const userMenu = [
         icon : "fa-sharp fa-solid fa-hospital-user"   
     },
     {
-        name: "organisation",
+        name: "Organisation",
         path: "/organisation",
         icon: "fa-sharp fa-solid fa-building-ngo"
     }
