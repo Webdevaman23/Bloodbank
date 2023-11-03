@@ -1,12 +1,15 @@
 const app = require('express').Router();
 const authMiddleware = require('../middlewares/authMiddleware');
-const { createInventoryController, getInventoryController, getDonarsControllers , getHospitalController, gerOrganisationController, gerOrganisationForHospitalController } = require('../controllers/inventoryController');
+const { createInventoryController, getInventoryController, getDonarsControllers , getHospitalController, gerOrganisationController, gerOrganisationForHospitalController, getInventoryHospitalController } = require('../controllers/inventoryController');
 
 // POST || Add inventory;
 app.post('/create-inventory', authMiddleware , createInventoryController);
 
-// GET || get all inventory
+// GET || get all blood records
 app.get('/get-inventory' , authMiddleware , getInventoryController)
+
+// POST || get hospital blood records
+app.post('/get-inventory-hospital' , authMiddleware , getInventoryHospitalController)
 
 // GET || get donars records
 app.get('/get-donars' , authMiddleware , getDonarsControllers)
