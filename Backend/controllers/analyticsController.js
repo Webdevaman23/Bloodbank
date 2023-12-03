@@ -1,14 +1,15 @@
 const inventoryModel = require("../models/inventoryModel");
+const mongoose = require("mongoose");
 
 // GET BOOD DATA
 const bloodGroupDetailsController = async (req , res ) => {
     try {
         const bloodGroups = ["O+", "O-", "AB+" , "AB-" , "A+" , "A-" , "B+" , "B-" ];
         const bloodGroupData = [];
-        const organistaion = req.body.userId 
+        const organistaion = new mongoose.Types.ObjectId(req.body.userId)  
 
         // get single blood group
-        await Promise.all(async (bloodGroup) => {
+        await Promise.all(bloodGroups.map(async (bloodGroup) => {
             // Count Total In
             const totalIn = await inventoryModel.aggregate([
                 {
@@ -53,7 +54,7 @@ const bloodGroupDetailsController = async (req , res ) => {
                 totalOut : totalOut[0]?.total || 0,
                 availableBlood
             })
-        })
+        }))
 
         return res.status(200).send({
             success : true,
