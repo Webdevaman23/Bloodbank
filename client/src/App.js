@@ -12,12 +12,48 @@ import Organisation from "./pages/Dashborad/Organisation";
 import Consumer from "./pages/Dashborad/Consumer";
 import Donation from "./pages/Donation";
 import Analytics from "./pages/Dashborad/Analytics";
+import DonarList from "./pages/Admin/DonarList";
+import HospitalList from "./pages/Admin/HospitalList";
+import OrgList from "./pages/Admin/OrgList";
+import AdminHome from "./pages/Admin/AdminHome";
 
 function App() {
   return (
     <>
       <ToastContainer />
       <Routes>
+        <Route
+          path="/donar-list"
+          element={
+            <ProtectedRoutes>
+              <DonarList />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/hospital-list"
+          element={
+            <ProtectedRoutes>
+              <HospitalList />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/org-list"
+          element={
+            <ProtectedRoutes>
+              <OrgList />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoutes>
+              <AdminHome />
+            </ProtectedRoutes>
+          }
+        />
         <Route
           path="/"
           element={

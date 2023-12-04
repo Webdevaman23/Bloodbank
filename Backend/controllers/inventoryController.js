@@ -145,7 +145,7 @@ const getInventoryHospitalController = async (req, res) => {
 const getRecentInventoryController = async (req , res) =>{
   try {
     const inventory = await inventoryModel.find({
-      organisation : req.body.userId
+      organisation : req.body.UserId
     }).limit(3).sort({createdAt: -1})
 
     return res.status(200).send({
