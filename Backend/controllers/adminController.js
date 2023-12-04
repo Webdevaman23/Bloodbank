@@ -24,13 +24,13 @@ const getDonarsListController = async (req , res) => {
 // get hospital list 
 const getHospitalListController = async (req , res) => {
     try {
-        const donarData = await userModel.find({role : "hospital"}).sort({createdAt : -1})
+        const hospitalData = await userModel.find({role : "hospital"}).sort({createdAt : -1})
 
         return res.status(200).send({
             success : true,
             TotalCount : donarData.length,
             message : "Hospitals List Fetched Successfully",
-            donarData
+            hospitalData
         })
     } catch (error) {
         console.log(error);
@@ -45,13 +45,13 @@ const getHospitalListController = async (req , res) => {
 // get Org list 
 const getOrgListController = async (req , res) => {
     try {
-        const donarData = await userModel.find({role : "organisation"}).sort({createdAt : -1})
+        const orgData = await userModel.find({role : "organisation"}).sort({createdAt : -1})
 
         return res.status(200).send({
             success : true,
             TotalCount : donarData.length,
             message : "ORG List Fetched Successfully",
-            donarData
+            orgData
         })
     } catch (error) {
         console.log(error);
@@ -63,5 +63,23 @@ const getOrgListController = async (req , res) => {
     }
 }
 
+// delete donar 
+const deleteDonar = async(req , res) => {
+    try {
+        await userModel.findByIdAndDelete(req.params.id);
+        return res.status(200).send({
+            success : true,
+            message : "Donar Record Deleted Successfully";
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success : false,
+            message : "Error while deleting donar",
+            error
+        })
+    }
+}
+
 // export 
-module.exports = {getDonarsListController , getHospitalListController , getOrgListController}
+module.exports = {deleteDonar , getDonarsListController , getHospitalListController , getOrgListController}

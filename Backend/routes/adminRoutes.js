@@ -1,4 +1,4 @@
-const { getDonarsListController, getHospitalListController, getOrgListController } = require('../controllers/adminController');
+const { getDonarsListController, getHospitalListController, getOrgListController, deleteDonar } = require('../controllers/adminController');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
@@ -14,6 +14,9 @@ app.get("/hospital-list" , authMiddleware, adminMiddleware , getHospitalListCont
 
 // GET || ORG List
 app.get("/org-list" , authMiddleware, adminMiddleware , getOrgListController)
+
+// ================
+app.delete("/delete-donar/:id" , authMiddleware , adminMiddleware , deleteDonar)
 
 
 // export
