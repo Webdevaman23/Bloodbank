@@ -13,7 +13,7 @@ const getDonarsListController = async (req , res) => {
         })
     } catch (error) {
         console.log(error);
-        return res.status(500).sedn({
+        return res.status(500).send({
             success: false,
             message: "Error in Donar List",
             error
@@ -28,13 +28,13 @@ const getHospitalListController = async (req , res) => {
 
         return res.status(200).send({
             success : true,
-            TotalCount : donarData.length,
+            TotalCount : hospitalData.length,
             message : "Hospitals List Fetched Successfully",
             hospitalData
         })
     } catch (error) {
         console.log(error);
-        return res.status(500).sedn({
+        return res.status(500).send({
             success: false,
             message: "Error in Hospital List",
             error
@@ -49,13 +49,13 @@ const getOrgListController = async (req , res) => {
 
         return res.status(200).send({
             success : true,
-            TotalCount : donarData.length,
+            TotalCount : orgData.length,
             message : "ORG List Fetched Successfully",
             orgData
         })
     } catch (error) {
         console.log(error);
-        return res.status(500).sedn({
+        return res.status(500).send({
             success: false,
             message: "Error in ORG List",
             error
@@ -69,17 +69,18 @@ const deleteDonar = async(req , res) => {
         await userModel.findByIdAndDelete(req.params.id);
         return res.status(200).send({
             success : true,
-            message : "Donar Record Deleted Successfully";
+            message : "Record Deleted Successfully"
         })
     } catch (error) {
         console.log(error)
         return res.status(500).send({
             success : false,
-            message : "Error while deleting donar",
+            message : "Error while deleting records",
             error
         })
     }
 }
+
 
 // export 
 module.exports = {deleteDonar , getDonarsListController , getHospitalListController , getOrgListController}

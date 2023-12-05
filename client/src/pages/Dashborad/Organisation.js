@@ -52,7 +52,7 @@ const Organisation = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.organisationName}</td>
+              <td>{record.name || record.organisationName}</td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{record.address}</td>
