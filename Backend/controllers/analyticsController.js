@@ -6,7 +6,7 @@ const bloodGroupDetailsController = async (req , res ) => {
     try {
         const bloodGroups = ["O+", "O-", "AB+" , "AB-" , "A+" , "A-" , "B+" , "B-" ];
         const bloodGroupData = [];
-        const organistaion = new mongoose.Types.ObjectId(req.body.UserId)  
+        const organisation = new mongoose.Types.ObjectId(req.body.UserId)  
 
         // get single blood group
         await Promise.all(bloodGroups.map(async (bloodGroup) => {
@@ -16,7 +16,7 @@ const bloodGroupDetailsController = async (req , res ) => {
                     $match : {
                         bloodGroup : bloodGroup,
                         inventoryType : "in",
-                        organistaion
+                        organisation
                     }
                 },
                 {
@@ -33,7 +33,7 @@ const bloodGroupDetailsController = async (req , res ) => {
                     $match : {
                         bloodGroup : bloodGroup,
                         inventoryType : "out",
-                        organistaion
+                        organisation
                     }
                 },
                 {

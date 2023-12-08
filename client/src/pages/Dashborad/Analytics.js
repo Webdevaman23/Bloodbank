@@ -44,7 +44,7 @@ const Analytics = () => {
   useEffect(() => {
     getBloodRecords();
   }, []);
-
+console.log(inventoryData)
   return (
     <>
       <Header />

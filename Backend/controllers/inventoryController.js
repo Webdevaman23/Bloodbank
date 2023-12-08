@@ -149,14 +149,14 @@ const getRecentInventoryController = async (req , res) =>{
     }).limit(3).sort({createdAt: -1})
 
     return res.status(200).send({
-      status : "True",
+      success : true,
       message : "Recent Inventory Data",
       inventory
     })
   } catch (error) {
     console.log(error)
     return res.status(500).send({
-      status : "False",
+      success : false,
       message : "Error in recent Inventory API",
       error
     })
